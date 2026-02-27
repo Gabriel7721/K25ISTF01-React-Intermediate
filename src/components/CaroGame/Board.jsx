@@ -6,6 +6,9 @@ const Board = () => {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleClick(i) {
+    if (squares[i] || calWinner(squares)) {
+      return;
+    }
     const nextSquares = squares.slice();
     nextSquares[i] = "X";
 
@@ -17,25 +20,6 @@ const Board = () => {
     setSquares(nextSquares);
     console.log(nextSquares);
     setXIsNext(!xIsNext);
-  }
-
-  function calWinner(squares) {
-    const line = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-    ];
-
-    for (let i = 0; i < line.length; i++) {
-      const [a, b, c] = line[i];
-      if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
-      ) {
-        return squares[a];
-      }
-    }
   }
 
   return (
@@ -58,5 +42,20 @@ const Board = () => {
     </>
   );
 };
+
+function calWinner(squares) {
+  const line = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+  ];
+
+  for (let i = 0; i < line.length; i++) {
+    const [a, b, c] = line[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+}
 
 export default Board;
