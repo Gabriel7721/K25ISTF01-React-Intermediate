@@ -1,4 +1,5 @@
 import "./App.css";
+import Board from "./components/CaroGame/Board";
 import Square from "./components/CaroGame/Square";
 import Properties from "./components/CustomURL/Properties";
 import List from "./components/Lists/List";
@@ -10,7 +11,8 @@ const App = () => {
       {/* <Profiles /> */}
       {/* <Properties /> */}
       {/* <List /> */}
-      <Square />
+      {/* <Square /> */}
+      <Board />
     </div>
   );
 };

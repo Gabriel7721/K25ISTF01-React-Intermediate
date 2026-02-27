@@ -13,4 +13,10 @@ img {
   font-size: 24px;
   line-height: 34px;
   background-color: #fff;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.board-row {
+  float: left;
 }
