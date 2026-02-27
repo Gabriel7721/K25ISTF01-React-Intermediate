@@ -1,17 +1,19 @@
-const images = [
-  "/data/scientist/img001.png",
-  "/data/scientist/img002.png",
-  "/data/scientist/img003.png",
-  "/data/scientist/img004.png",
-  "/data/scientist/img005.png",
-  "/data/scientist/img006.png",
-];
+import data from "./scientist.json";
 
 const Profiles = () => {
   return (
     <>
-      {images.map((s, i) => (
-        <img key={i} src={s} alt={`img${i}`} />
+      <h1>Scientist List</h1>
+
+      {data.scientists.map((value, index) => (
+        <section key={index}>
+          <article>
+            <h2>{value.name}</h2>
+            <p>{value.title}</p>
+            <img src={value.avatar} alt={value.name} />
+            <p>{value.description}</p>
+          </article>
+        </section>
       ))}
     </>
   );
